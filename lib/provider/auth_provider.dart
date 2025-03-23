@@ -1,10 +1,10 @@
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:kilimboga/services/geo_locator_service.dart';
 import 'package:kilimboga/services/shared_preferences.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:kilimboga/utils/constants.dart';
+import 'package:kilimboga/data/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:convert';

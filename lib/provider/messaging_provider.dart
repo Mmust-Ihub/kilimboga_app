@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:kilimboga/utils/constants.dart';
+import 'package:kilimboga/data/constants.dart';
 
 class MessagingProvider with ChangeNotifier {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

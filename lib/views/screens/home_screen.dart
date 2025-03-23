@@ -1,10 +1,7 @@
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/layout/patient/appointments_screen.dart';
-import 'package:kilimboga/layout/patient/chat_screen.dart';
-import 'package:kilimboga/layout/patient/components/appointment_card.dart';
-import 'package:kilimboga/layout/patient/profile_screen.dart';
-import 'package:kilimboga/layout/patient/single_hospital.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/components/appointment_card.dart';
+import 'package:kilimboga/data/models.dart';
+import 'package:kilimboga/views/pages/single_hospital.dart';
 import 'package:kilimboga/provider/appointment_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +27,6 @@ class HomeScreen extends StatelessWidget {
 
               return Column(
                 children: [
-                  // Header
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -304,70 +300,3 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class MobileScaffold extends StatefulWidget {
-  const MobileScaffold({super.key});
-
-  @override
-  State<MobileScaffold> createState() => _MobileScaffoldState();
-}
-
-class _MobileScaffoldState extends State<MobileScaffold> {
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const AppointmentsScreen(),
-    const ChatScreen(),
-    const ProfileScreen(),
-  ];
-
-  int selectedIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: const Drawer(),
-      body: _screens[selectedIndex],
-      bottomNavigationBar: NavigationBar(
-          selectedIndex: selectedIndex,
-          elevation: 2.0,
-          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          destinations: [
-            NavigationDestination(
-                icon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = 0;
-                      });
-                    },
-                    icon: const Icon(Icons.home_outlined)),
-                label: "Home"),
-            NavigationDestination(
-                icon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = 1;
-                      });
-                    },
-                    icon: const Icon(Icons.schedule_outlined)),
-                label: "Appointments"),
-            NavigationDestination(
-                icon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = 2;
-                      });
-                    },
-                    icon: const Icon(Icons.comment_rounded)),
-                label: "Messages"),
-            NavigationDestination(
-                icon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = 3;
-                      });
-                    },
-                    icon: const Icon(Icons.person)),
-                label: "Profile"),
-          ]),
-    );
-  }
-}

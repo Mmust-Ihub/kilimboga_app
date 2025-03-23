@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:kilimboga/components/login_page.dart';
+import 'package:kilimboga/views/pages/login_page.dart';
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

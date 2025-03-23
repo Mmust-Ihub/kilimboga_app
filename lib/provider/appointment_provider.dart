@@ -1,6 +1,6 @@
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/models/models.dart';
-import 'package:kilimboga/utils/constants.dart';
+import 'package:kilimboga/data/models.dart';
+import 'package:kilimboga/data/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

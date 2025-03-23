@@ -1,4 +1,4 @@
-import 'package:kilimboga/layout/patient/components/appointment_card.dart';
+import 'package:kilimboga/components/appointment_card.dart';
 import 'package:kilimboga/provider/appointment_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

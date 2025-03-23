@@ -1,18 +1,18 @@
+import 'package:kilimboga/data/constants.dart';
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:kilimboga/provider/messaging_provider.dart';
-import 'package:kilimboga/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-class SIngleChatScreen extends StatefulWidget {
+class SIngleChatPage extends StatefulWidget {
   final String name;
   final String id;
   final String chatroomid;
   final List tokens;
   final String? phone;
-  const SIngleChatScreen(
+  const SIngleChatPage(
       {super.key,
       required this.name,
       required this.id,
@@ -21,10 +21,10 @@ class SIngleChatScreen extends StatefulWidget {
       this.phone});
 
   @override
-  State<SIngleChatScreen> createState() => _SIngleChatScreenState();
+  State<SIngleChatPage> createState() => _SIngleChatPageState();
 }
 
-class _SIngleChatScreenState extends State<SIngleChatScreen> {
+class _SIngleChatPageState extends State<SIngleChatPage> {
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _messageController = TextEditingController();
 

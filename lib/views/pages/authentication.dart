@@ -1,4 +1,4 @@
-import 'package:kilimboga/components/login_page.dart';
+import 'package:kilimboga/views/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class Authentication extends StatefulWidget {

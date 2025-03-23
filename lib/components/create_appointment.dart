@@ -1,5 +1,5 @@
 import 'package:kilimboga/config/size_config.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:kilimboga/provider/appointment_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

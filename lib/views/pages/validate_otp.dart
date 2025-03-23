@@ -1,8 +1,8 @@
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/layout/patient/patient.dart';
 import 'package:kilimboga/provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kilimboga/views/pages/farmer.dart';
 import 'package:provider/provider.dart';
 
 class ValidateOtp extends StatefulWidget {
@@ -285,7 +285,7 @@ class _ValidateOtpState extends State<ValidateOtp> {
                                       Navigator.of(context).pushReplacement(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const Patient()));
+                                                  const Farmer()));
                                     }
                                   } else {
                                     ScaffoldMessenger.of(context)

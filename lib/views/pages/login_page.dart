@@ -1,20 +1,21 @@
-import 'package:kilimboga/components/login_page.dart';
-import 'package:kilimboga/components/validate_otp.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:kilimboga/views/pages/signup_page.dart';
 import 'package:kilimboga/provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:kilimboga/components/input.dart';
+import 'package:kilimboga/views/pages/farmer.dart';
 import 'package:provider/provider.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController email = TextEditingController();
-  final TextEditingController username = TextEditingController();
   final TextEditingController password = TextEditingController();
   bool isObscured = true;
   @override
@@ -46,7 +47,7 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                           const Text(
-                            "Create an Account",
+                            "Login To Your Account",
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
@@ -56,17 +57,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   const SizedBox(height: 30),
                   InputComponent(
-                    hintText: 'User name',
-                    prefixIcon: Icon(Icons.person, color: Colors.grey.shade500),
-                    controller: username,
-                    readOnly: provider.isLoading ? true : false,
-                  ),
-                  const SizedBox(height: 30),
-                  InputComponent(
-                    hintText: 'Email',
-                    keyboardType: TextInputType.emailAddress,
-                    prefixIcon:
-                        Icon(Icons.email_outlined, color: Colors.grey.shade500),
+                    hintText: 'Email or username',
                     controller: email,
                     readOnly: provider.isLoading ? true : false,
                   ),
@@ -74,12 +65,10 @@ class _SignupPageState extends State<SignupPage> {
                   InputComponent(
                     hintText: 'Password',
                     isPassword: true,
-                    prefixIcon:
-                        Icon(Icons.lock_outline, color: Colors.grey.shade500),
                     controller: password,
                     readOnly: provider.isLoading ? true : false,
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                   Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40.0, vertical: 5),
@@ -99,32 +88,40 @@ class _SignupPageState extends State<SignupPage> {
                       onPressed: provider.isLoading
                           ? null
                           : () async {
-                              if (email.text.trim().isNotEmpty &&
-                                  password.text.trim().isNotEmpty &&
-                                  username.text.isNotEmpty) {
-                                int statusCode = await provider.createUser(
-                                    email.text.trim(),
-                                    username.text,
-                                    password.text.trim());
+                              int statusCode = await provider.authUser(
+                                  email.text, password.text.trim());
 
-                                if (statusCode == 201) {
-                                  Navigator.of(context).push(
+                              if (statusCode == 200) {
+                                Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
-                                        builder: (context) => const ValidateOtp(
-                                            ),),
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(const SnackBar(
-                                    content: Text(
-                                        "Something went wrong, try again!"),
+                                        builder: (context) => const Farmer()));
+                              } else if (statusCode == 500) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content:
+                                        Text('Something went wrong,try again!'),
                                     duration: Duration(seconds: 3),
-                                  ));
-                                }
+                                  ),
+                                );
+                              } else if (statusCode == 401) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Unauthorized,try again!'),
+                                    duration: Duration(seconds: 3),
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content:
+                                        Text('Invalid credentials,try again!'),
+                                    duration: Duration(seconds: 3),
+                                  ),
+                                );
                               }
                             },
                       child: Text(
-                        provider.isLoading ? provider.message : "Sign Up",
+                        provider.isLoading ? provider.message : "Login",
                         style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -132,18 +129,15 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: provider.isLoading
-                        ? null
-                        : () {
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    maintainState: false,
-                                    builder: (context) => const LoginPage()));
-                          },
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          maintainState: false,
+                          builder: (context) => const SignupPage()));
+                    },
                     child: const Text(
-                      "Already have an account? Login",
+                      "Don't have an account? Sign up",
                       style: TextStyle(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,

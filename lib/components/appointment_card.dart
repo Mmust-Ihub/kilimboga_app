@@ -1,4 +1,4 @@
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

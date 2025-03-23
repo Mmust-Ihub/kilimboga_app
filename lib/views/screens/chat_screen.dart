@@ -1,5 +1,5 @@
 import 'package:kilimboga/data/dummy_data.dart';
-import 'package:kilimboga/layout/patient/single_chat_screen.dart';
+import 'package:kilimboga/views/pages/single_chat_page.dart';
 import 'package:kilimboga/provider/messaging_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -125,7 +125,7 @@ Widget _buildChatItem(BuildContext context, Map chat) {
     onTap: () {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => SIngleChatScreen(
+          builder: (context) => SIngleChatPage(
             name: otherName,
             id: otherParticipant?['id'],
             chatroomid: chatroomid,

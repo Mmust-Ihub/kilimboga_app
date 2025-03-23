@@ -1,8 +1,8 @@
-import 'package:kilimboga/layout/patient/single_chat_screen.dart';
-import 'package:kilimboga/layout/patient/components/create_appointment.dart';
-import 'package:kilimboga/models/models.dart';
+import 'package:kilimboga/components/create_appointment.dart';
+import 'package:kilimboga/data/models.dart';
 import 'package:kilimboga/provider/hospital_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:kilimboga/views/pages/single_chat_page.dart';
 import 'package:provider/provider.dart';
 
 class SingleHospital extends StatefulWidget {
@@ -171,7 +171,7 @@ class _SingleHospitalState extends State<SingleHospital> {
                                                   Navigator.of(context).push(
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          SIngleChatScreen(
+                                                          SIngleChatPage(
                                                         name: nurse.name,
                                                         id: nurse.id,
                                                         chatroomid: nurse.id,
