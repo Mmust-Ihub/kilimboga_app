@@ -36,7 +36,7 @@ class _InputComponentState extends State<InputComponent> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      readOnly:widget.readOnly,
+      readOnly: widget.readOnly,
       controller: widget.controller,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       obscureText: isObscured,
@@ -45,17 +45,17 @@ class _InputComponentState extends State<InputComponent> {
           contentPadding: const EdgeInsets.all(15),
           labelText: widget.hintText,
           labelStyle: TextStyle(
-            color: Colors.grey.shade500,
+            color: Theme.of(context).colorScheme.secondary.withOpacity(0.3),
             fontSize: 16,
           ),
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.7),
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade300),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
               borderRadius: const BorderRadius.all(Radius.circular(20))),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder:  OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            borderSide: BorderSide(color: Colors.blueAccent),
+            borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.5)),
           ),
           suffixIcon: isPassword
               ? GestureDetector(
@@ -65,8 +65,8 @@ class _InputComponentState extends State<InputComponent> {
                     });
                   },
                   child: isObscured
-                      ? Icon(Icons.visibility, color: Colors.grey.shade500)
-                      : Icon(Icons.visibility_off, color: Colors.grey.shade500),
+                      ? Icon(Icons.visibility, color:Theme.of(context).colorScheme.secondary.withOpacity(0.3))
+                      : Icon(Icons.visibility_off, color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                 )
               : null),
     );

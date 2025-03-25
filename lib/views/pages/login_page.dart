@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Consumer<AuthProvider>(
@@ -69,6 +69,66 @@ class _LoginPageState extends State<LoginPage> {
                     readOnly: provider.isLoading ? true : false,
                   ),
                   const SizedBox(height: 20),
+                  // Container(
+                  //   padding: const EdgeInsets.symmetric(
+                  //       horizontal: 40.0, vertical: 5),
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  //     gradient: LinearGradient(
+                  //       begin: Alignment.topLeft,
+                  //       end: Alignment.bottomRight,
+                  //       colors: [
+                  //         Colors.blue.shade300,
+                  //         Colors.blue.shade400,
+                  //         Colors.blue.shade500,
+                  //       ],
+                  //     ),
+                  //   ),
+                  //   child: TextButton(
+                  //     onPressed: provider.isLoading
+                  //         ? null
+                  //         : () async {
+                  //             int statusCode = await provider.authUser(
+                  //                 email.text, password.text.trim());
+
+                  //             if (statusCode == 200) {
+                  //               Navigator.of(context).pushReplacement(
+                  //                   MaterialPageRoute(
+                  //                       builder: (context) => const Farmer()));
+                  //             } else if (statusCode == 500) {
+                  //               ScaffoldMessenger.of(context).showSnackBar(
+                  //                 const SnackBar(
+                  //                   content:
+                  //                       Text('Something went wrong,try again!'),
+                  //                   duration: Duration(seconds: 3),
+                  //                 ),
+                  //               );
+                  //             } else if (statusCode == 401) {
+                  //               ScaffoldMessenger.of(context).showSnackBar(
+                  //                 const SnackBar(
+                  //                   content: Text('Unauthorized,try again!'),
+                  //                   duration: Duration(seconds: 3),
+                  //                 ),
+                  //               );
+                  //             } else {
+                  //               ScaffoldMessenger.of(context).showSnackBar(
+                  //                 const SnackBar(
+                  //                   content:
+                  //                       Text('Invalid credentials,try again!'),
+                  //                   duration: Duration(seconds: 3),
+                  //                 ),
+                  //               );
+                  //             }
+                  //           },
+                  //     child: Text(
+                  //       provider.isLoading ? provider.message : "Login",
+                  //       style: const TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 18,
+                  //           fontWeight: FontWeight.bold),
+                  //     ),
+                  //   ),
+                  // ),
                   Container(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40.0, vertical: 5),
@@ -85,41 +145,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     child: TextButton(
-                      onPressed: provider.isLoading
-                          ? null
-                          : () async {
-                              int statusCode = await provider.authUser(
-                                  email.text, password.text.trim());
-
-                              if (statusCode == 200) {
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) => const Farmer()));
-                              } else if (statusCode == 500) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content:
-                                        Text('Something went wrong,try again!'),
-                                    duration: Duration(seconds: 3),
-                                  ),
-                                );
-                              } else if (statusCode == 401) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Unauthorized,try again!'),
-                                    duration: Duration(seconds: 3),
-                                  ),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content:
-                                        Text('Invalid credentials,try again!'),
-                                    duration: Duration(seconds: 3),
-                                  ),
-                                );
-                              }
-                            },
+                      onPressed: () async {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => const Farmer()));
+                      },
                       child: Text(
                         provider.isLoading ? provider.message : "Login",
                         style: const TextStyle(

@@ -1,4 +1,3 @@
-import 'package:kilimboga/data/dummy_data.dart';
 import 'package:kilimboga/components/appointment_card.dart';
 import 'package:kilimboga/data/models.dart';
 import 'package:kilimboga/views/pages/single_hospital.dart';
@@ -34,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Hello, ${user!.firstName}',
+                            'Hello, Wa Kirigu',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -58,7 +57,6 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 24),
-
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -299,4 +297,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:kilimboga/components/farmer_app_drawer.dart';
 import 'package:kilimboga/views/screens/home_screen.dart';
-import 'package:kilimboga/views/screens/profile_screen.dart';
 import 'package:kilimboga/views/screens/appointments_screen.dart';
 import 'package:kilimboga/views/screens/chat_screen.dart';
-
 
 class Farmer extends StatefulWidget {
   const Farmer({super.key});
@@ -13,19 +13,22 @@ class Farmer extends StatefulWidget {
 }
 
 class _FarmerState extends State<Farmer> {
-
-    final List<Widget> _screens = [
+  final List<Widget> _screens = [
     const HomeScreen(),
     const AppointmentsScreen(),
-    const ChatScreen(),
-    const ProfileScreen(),
+    // const ChatScreen(),
+    const Scaffold(
+      body:Center(child:Text("Chat_page_placeholder"),),
+    ),
   ];
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const Drawer(),
+      drawer: FarmerAppDrawer(scaffoldKey: scaffoldKey),
       body: _screens[selectedIndex],
       bottomNavigationBar: NavigationBar(
           selectedIndex: selectedIndex,
@@ -39,7 +42,7 @@ class _FarmerState extends State<Farmer> {
                         selectedIndex = 0;
                       });
                     },
-                    icon: const Icon(Icons.home_outlined)),
+                    icon: const Icon(Iconsax.home)),
                 label: "Home"),
             NavigationDestination(
                 icon: IconButton(
@@ -49,7 +52,7 @@ class _FarmerState extends State<Farmer> {
                       });
                     },
                     icon: const Icon(Icons.schedule_outlined)),
-                label: "Appointments"),
+                label: "Farms"),
             NavigationDestination(
                 icon: IconButton(
                     onPressed: () {
@@ -57,17 +60,9 @@ class _FarmerState extends State<Farmer> {
                         selectedIndex = 2;
                       });
                     },
-                    icon: const Icon(Icons.comment_rounded)),
-                label: "Messages"),
-            NavigationDestination(
-                icon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = 3;
-                      });
-                    },
-                    icon: const Icon(Icons.person)),
-                label: "Profile"),
+                    icon: const Icon(Iconsax.message)),
+                label: "Chat"),
+            
           ]),
     );
   }
