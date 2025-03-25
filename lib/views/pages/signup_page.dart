@@ -20,7 +20,7 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFEFEFF),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Consumer<AuthProvider>(
@@ -110,8 +110,8 @@ class _SignupPageState extends State<SignupPage> {
                                 if (statusCode == 201) {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
-                                        builder: (context) => const ValidateOtp(
-                                            ),),
+                                      builder: (context) => const ValidateOtp(),
+                                    ),
                                   );
                                 } else {
                                   ScaffoldMessenger.of(context)
@@ -123,6 +123,9 @@ class _SignupPageState extends State<SignupPage> {
                                 }
                               }
                             },
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 40),
+                      ),
                       child: Text(
                         provider.isLoading ? provider.message : "Sign Up",
                         style: const TextStyle(

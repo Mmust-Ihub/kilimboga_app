@@ -18,18 +18,49 @@ class _FarmerState extends State<Farmer> {
     const AppointmentsScreen(),
     // const ChatScreen(),
     const Scaffold(
-      body:Center(child:Text("Chat_page_placeholder"),),
+      body: Center(
+        child: Text("Chat_page_placeholder"),
+      ),
     ),
   ];
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: FarmerAppDrawer(scaffoldKey: scaffoldKey),
-      body: _screens[selectedIndex],
+      key: _scaffoldKey,
+      drawer: FarmerAppDrawer(scaffoldKey: _scaffoldKey),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                      icon: const Icon(Iconsax.menu),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Iconsax.user),
+                    ),
+                  ]),
+              Expanded(
+                child: _screens[selectedIndex],
+              ),
+            ],
+          ),
+        ),
+      ),
       bottomNavigationBar: NavigationBar(
           selectedIndex: selectedIndex,
           elevation: 2.0,
@@ -42,7 +73,7 @@ class _FarmerState extends State<Farmer> {
                         selectedIndex = 0;
                       });
                     },
-                    icon: const Icon(Iconsax.home)),
+                    icon: const Icon(Iconsax.house)),
                 label: "Home"),
             NavigationDestination(
                 icon: IconButton(
@@ -51,7 +82,7 @@ class _FarmerState extends State<Farmer> {
                         selectedIndex = 1;
                       });
                     },
-                    icon: const Icon(Icons.schedule_outlined)),
+                    icon: const Icon(Iconsax.tree)),
                 label: "Farms"),
             NavigationDestination(
                 icon: IconButton(
@@ -62,7 +93,6 @@ class _FarmerState extends State<Farmer> {
                     },
                     icon: const Icon(Iconsax.message)),
                 label: "Chat"),
-            
           ]),
     );
   }

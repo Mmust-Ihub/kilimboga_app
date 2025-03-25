@@ -130,8 +130,6 @@ class _LoginPageState extends State<LoginPage> {
                   //   ),
                   // ),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40.0, vertical: 5),
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(15)),
                       gradient: LinearGradient(
@@ -149,6 +147,9 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => const Farmer()));
                       },
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 40),
+                      ),
                       child: Text(
                         provider.isLoading ? provider.message : "Login",
                         style: const TextStyle(
@@ -170,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                         color: Colors.blue,
                         decoration: TextDecoration.underline,
-                        decorationColor: Colors.blue,
+                        decorationColor: Colors.blueAccent,
                       ),
                     ),
                   ),

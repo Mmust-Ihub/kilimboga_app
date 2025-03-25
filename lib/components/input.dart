@@ -45,17 +45,17 @@ class _InputComponentState extends State<InputComponent> {
           contentPadding: const EdgeInsets.all(15),
           labelText: widget.hintText,
           labelStyle: TextStyle(
-            color: Theme.of(context).colorScheme.secondary.withOpacity(0.3),
+            color: Colors.grey.shade400,
             fontSize: 16,
           ),
           filled: true,
-          fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.7),
+          fillColor: Theme.of(context).colorScheme.primary,
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+              borderSide: BorderSide(color: Colors.grey.shade300),
               borderRadius: const BorderRadius.all(Radius.circular(20))),
-          focusedBorder:  OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.5)),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            borderSide: BorderSide(color: Colors.grey.shade500),
           ),
           suffixIcon: isPassword
               ? GestureDetector(
@@ -65,8 +65,8 @@ class _InputComponentState extends State<InputComponent> {
                     });
                   },
                   child: isObscured
-                      ? Icon(Icons.visibility, color:Theme.of(context).colorScheme.secondary.withOpacity(0.3))
-                      : Icon(Icons.visibility_off, color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
+                      ? Icon(Icons.visibility, color: Colors.grey.shade500)
+                      : Icon(Icons.visibility_off, color: Colors.grey.shade500),
                 )
               : null),
     );
