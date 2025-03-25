@@ -3,7 +3,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:kilimboga/components/farmer_app_drawer.dart';
 import 'package:kilimboga/views/screens/home_screen.dart';
 import 'package:kilimboga/views/screens/appointments_screen.dart';
-import 'package:kilimboga/views/screens/chat_screen.dart';
 
 class Farmer extends StatefulWidget {
   const Farmer({super.key});
@@ -17,10 +16,10 @@ class _FarmerState extends State<Farmer> {
     const HomeScreen(),
     const AppointmentsScreen(),
     // const ChatScreen(),
-    const Scaffold(
-      body: Center(
-        child: Text("Chat_page_placeholder"),
-      ),
+    const Column(
+      children: [
+        Text("Chat_page_placeholder"),
+      ],
     ),
   ];
 
@@ -54,8 +53,9 @@ class _FarmerState extends State<Farmer> {
                       icon: const Icon(Iconsax.user),
                     ),
                   ]),
+              const SizedBox(height: 10),
               Expanded(
-                child: _screens[selectedIndex],
+                child: SingleChildScrollView(child: _screens[selectedIndex]),
               ),
             ],
           ),

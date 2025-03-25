@@ -44,6 +44,7 @@ class FarmerAppDrawer extends StatelessWidget {
                           "assets/images/logo.webp",
                           height: 80,
                           width: 80,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       const Row(

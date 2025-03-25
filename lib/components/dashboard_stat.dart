@@ -36,7 +36,7 @@ class DashboardStat extends StatelessWidget {
                 name,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey.shade300,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
