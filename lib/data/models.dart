@@ -128,3 +128,9 @@ class SmartDevice {
   SmartDevice(
       {required this.name, required this.icon, required this.powerStatus});
 }
+
+class SensorData {
+  SensorData(this.time, this.nitrogen, this.phosphorus, this.potassium, this.moisture, this.humidity, this.temperature, this.ph);
+  final DateTime time;
+  final double nitrogen, phosphorus, potassium, moisture, humidity, temperature, ph;
+}

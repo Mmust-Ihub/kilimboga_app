@@ -57,6 +57,7 @@ dependencies:
   lazy_load_scrollview: ^1.3.0
   multi_select_flutter: ^4.1.3
   flutter_svg: ^2.0.17
+  syncfusion_flutter_charts: ^29.1.33
 
 dev_dependencies:
   flutter_test:

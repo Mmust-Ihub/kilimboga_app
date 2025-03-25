@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kilimboga/components/smart_device_component.dart';
 import 'package:kilimboga/data/models.dart';
+import 'package:kilimboga/widgets/live_data_streaming.dart';
 
 class SingleGreenHousePage extends StatefulWidget {
   const SingleGreenHousePage({super.key});
@@ -13,7 +14,6 @@ class _SingleGreenHousePageState extends State<SingleGreenHousePage> {
   final List<Map<String, dynamic>> _sections = [
     {"title": "Plants", "content": "List of your plants and care tips"},
     {"title": "Schedules", "content": "Your daily gardening schedule"},
-    {"title": "Weather", "content": "Current weather updates"},
   ];
 
   List<SmartDevice> devices = [
@@ -33,6 +33,8 @@ class _SingleGreenHousePageState extends State<SingleGreenHousePage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              const LiveDataStreaming(),
+              const SizedBox(height: 15),
               GridView.builder(
                 padding: const EdgeInsets.all(15.0),
                 shrinkWrap: true,
