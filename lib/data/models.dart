@@ -119,3 +119,12 @@ class ChatRoom {
         orElse: () => "Unknown");
   }
 }
+
+class SmartDevice {
+  final String name;
+  final String icon;
+  bool powerStatus;
+
+  SmartDevice(
+      {required this.name, required this.icon, required this.powerStatus});
+}

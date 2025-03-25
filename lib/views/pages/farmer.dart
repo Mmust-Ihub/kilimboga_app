@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:kilimboga/components/farmer_app_drawer.dart';
 import 'package:kilimboga/views/screens/home_screen.dart';
-import 'package:kilimboga/views/screens/appointments_screen.dart';
+import 'package:kilimboga/views/screens/green_houses_screen.dart';
 
 class Farmer extends StatefulWidget {
   const Farmer({super.key});
@@ -14,7 +14,7 @@ class Farmer extends StatefulWidget {
 class _FarmerState extends State<Farmer> {
   final List<Widget> _screens = [
     const HomeScreen(),
-    const AppointmentsScreen(),
+    const GreenHousesScreen(),
     // const ChatScreen(),
     const Column(
       children: [
@@ -55,7 +55,7 @@ class _FarmerState extends State<Farmer> {
                   ]),
               const SizedBox(height: 10),
               Expanded(
-                child: SingleChildScrollView(child: _screens[selectedIndex]),
+                child: _screens[selectedIndex],
               ),
             ],
           ),
