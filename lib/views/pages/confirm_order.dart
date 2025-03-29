@@ -95,7 +95,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                 itemCount: cartproducts.length,
                               ),
                             ),
-                            OrderCheckoutComponent(),
+                            const OrderCheckoutComponent(),
                           ],
                         );
                       },

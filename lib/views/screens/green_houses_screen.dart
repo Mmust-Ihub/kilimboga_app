@@ -42,36 +42,26 @@ class GreenHousesScreen extends StatelessWidget {
               height: 20,
             ),
             Expanded(
-              child: SingleChildScrollView(
-                child: Wrap(
-                  children: [
-                    LazyLoadScrollView(
-                      scrollDirection: Axis.horizontal,
-                      onEndOfPage: () {
-                        debugPrint("End of page");
-                      },
-                      child: ListView.separated(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SingleGreenHousePage()));
-                              },
-                              title: const Text("Grren House Name"),
-                            );
-                          },
-                          separatorBuilder: (context, index) => Divider(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .primary
-                                  .withOpacity(0.1)),
-                          itemCount: provider.isLoading ? 1 : 20),
-                    ),
-                  ],
-                ),
+              child: LazyLoadScrollView(
+                onEndOfPage: () {},
+                child: ListView.separated(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const SingleGreenHousePage()));
+                        },
+                        title: const Text("Grren House Name"),
+                      );
+                    },
+                    separatorBuilder: (context, index) => Divider(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.1)),
+                    itemCount: provider.isLoading ? 1 : 20),
               ),
             ),
           ],

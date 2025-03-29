@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:kilimboga/views/pages/blogs_page.dart';
 import 'package:kilimboga/views/pages/experts_page.dart';
 import 'package:kilimboga/views/pages/market_page.dart';
+import 'package:kilimboga/views/pages/my_shop_page.dart';
 import 'package:provider/provider.dart';
 
 class FarmerAppDrawer extends StatelessWidget {
@@ -176,10 +177,10 @@ class FarmerAppDrawer extends StatelessWidget {
                       Theme.of(context).colorScheme.primary.withOpacity(0.1)),
               ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MarketPage()));
-
                   Navigator.of(context).pop();
+
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MyShopPage()));
                 },
                 leading: Icon(Icons.dark_mode_outlined,
                     color: Theme.of(context)

@@ -41,7 +41,7 @@ class _OrderItemState extends State<OrderItem> {
                   Expanded(
                     flex: 1,
                     child: Image.asset(
-                      "assets/images/phone.png",
+                      product.logo,
                       height: 50,
                       width: 50,
                       fit: BoxFit.cover,
