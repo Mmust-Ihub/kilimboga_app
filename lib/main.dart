@@ -1,5 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:kilimboga/api/firebase_api.dart';
 import 'package:kilimboga/config/size_config.dart';
+import 'package:kilimboga/data/dummy_data.dart';
+import 'package:kilimboga/firebase_options.dart';
 import 'package:kilimboga/provider/appointment_provider.dart';
 import 'package:kilimboga/provider/auth_provider.dart';
 import 'package:kilimboga/provider/cart_provider.dart';
@@ -10,8 +14,16 @@ import 'package:kilimboga/provider/theme_provider.dart';
 import 'package:kilimboga/views/pages/login_page.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+    await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  if (fcm == null) {
+    await FirebaseApi().initNotification();
+  }
 
   runApp(
     MultiProvider(

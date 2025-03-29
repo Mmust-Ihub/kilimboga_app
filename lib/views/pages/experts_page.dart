@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kilimboga/views/pages/single_expert_page.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 class ExpertsPage extends StatelessWidget {
   const ExpertsPage({super.key});
@@ -24,11 +25,11 @@ class ExpertsPage extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height:10),
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(vertical: 12.0),
+              child: LazyLoadScrollView(
+                onEndOfPage: () {},
                 child: ListView.separated(
-                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) => ListTile(
                           onTap: () {

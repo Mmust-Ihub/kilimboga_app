@@ -11,7 +11,7 @@ class BlogsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
           child: LazyLoadScrollView(
             onEndOfPage: () {},
@@ -19,7 +19,6 @@ class BlogsPage extends StatelessWidget {
               itemCount: blogs.length,
               shrinkWrap: true,
               padding: const EdgeInsets.all(0),
-              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return BlogCard(
                   blog: blogs[index],

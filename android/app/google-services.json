@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "849367668649",
+    "project_id": "kimboga-46a89",
+    "storage_bucket": "kimboga-46a89.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849367668649:android:2e41ccba635f8bcfc716b8",
+        "android_client_info": {
+          "package_name": "ke.kingsly.kilimboga"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNGPDVH7jtPIPrDtUPpcHRWupg8YA0raM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

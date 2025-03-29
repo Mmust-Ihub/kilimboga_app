@@ -70,26 +70,23 @@ class _MarketPageState extends State<MarketPage> {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: LazyLoadScrollView(
-            onEndOfPage: () {  },
-                      child: ListView.separated(
-                        itemCount: 20,
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.all(0),
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) => ProductCard(
-                          imagePath: index % 2 == 0
-                              ? "assets/images/phone.png"
-                              : "assets/images/bucket.png",
-                          productName: index % 2 == 0 ? 'Laptop' : 'Bucket',
-                          productPrice: index % 2 == 0 ? '2,000' : "2,300",
-                        ),
-                        separatorBuilder: (BuildContext context, int index) =>
-                            const SizedBox(height: 10),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 8.0),
+                  child: LazyLoadScrollView(
+                    onEndOfPage: () {},
+                    child: ListView.separated(
+                      itemCount: 20,
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.all(0),
+                      itemBuilder: (context, index) => ProductCard(
+                        imagePath: index % 2 == 0
+                            ? "assets/images/phone.png"
+                            : "assets/images/bucket.png",
+                        productName: index % 2 == 0 ? 'Laptop' : 'Bucket',
+                        productPrice: index % 2 == 0 ? '2,000' : "2,300",
                       ),
+                      separatorBuilder: (BuildContext context, int index) =>
+                          const SizedBox(height: 10),
                     ),
                   ),
                 ),

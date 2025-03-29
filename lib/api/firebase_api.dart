@@ -13,6 +13,8 @@ class FirebaseApi {
 
     fcm = await _firebaseMessaging.getToken();
 
+    debugPrint(fcm);
+
     await prefs.setString("fcm", fcm!);
 
     initPushNotification();
