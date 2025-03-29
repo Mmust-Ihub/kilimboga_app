@@ -49,7 +49,7 @@ class _InputComponentState extends State<InputComponent> {
             fontSize: 16,
           ),
           filled: true,
-          fillColor: Theme.of(context).colorScheme.primary,
+          fillColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade300),
               borderRadius: const BorderRadius.all(Radius.circular(20))),

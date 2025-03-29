@@ -1,5 +1,91 @@
+import 'dart:math';
+
+import 'package:kilimboga/data/cart.dart';
 import 'package:kilimboga/data/models.dart';
+import 'package:kilimboga/data/order.dart';
+import 'package:kilimboga/data/product.dart';
 
 User? user;
 Preuser? preuser;
 String? fcm;
+
+
+
+// User
+
+
+final Random _random = Random();
+
+
+
+List<Order> generateOrdersForRestaurant(
+    String restaurantId, List<Product> restaurantProducts) {
+  int orderCount = _random.nextInt(5) + 1; // Each restaurant gets 1-5 orders
+
+  return List.generate(orderCount, (index) {
+    Product randomProduct =
+        restaurantProducts[_random.nextInt(restaurantProducts.length)];
+
+    return Order(
+      orderId: "order_${restaurantId}_${index + 1}",
+      userId: "user_001",
+      products: [randomProduct],
+      totalAmount: randomProduct.price * (_random.nextInt(3) + 1),
+      status: Status.values[_random.nextInt(Status.values.length)],
+      createdAt: DateTime(
+          2024, _random.nextInt(2) + 1, _random.nextInt(28) + 1, 18, 30),
+      updatedAt: DateTime(2024, 2, _random.nextInt(7) + 1, 10, 10), latitude: -1.28 + (index * 0.002), longitude: 36.82 + (index * 0.003),payment: index % 2 == 0 ?{Payment.paypal:"+254720041750"} :{Payment.mpesa: "+254720041750"},
+    );
+  });
+}
+
+
+// Products
+final List<Product> products = List.generate(
+    30,
+    (index) => Product(
+          productId: "prod_00${index + 1}",
+          restaurantId: "rest_00${(index % 10) + 1}",
+          name: "Product ${index + 1}",
+          price: (500 + (index * 50)).toDouble(),
+          description: "A delicious and mouth-watering meal option.",
+          logo: index % 2 == 0
+              ? "assets/images/phone.png"
+              : "assets/images/laptop.png",
+          image: "assets/images/shoes.png",
+          ratings: 4.2 + (index % 3) * 0.1,
+          reviews: ["Tasty!", "Would order again!", "Excellent flavor!"],
+          createdAt: DateTime(2024, 1, 15 + (index % 5), 13, 15),
+          updatedAt: DateTime(2024, 2, 6, 11, 20),
+        ));
+
+// Cart
+final List<Cart> carts = [
+  Cart(
+    cartId: "cart_001",
+    userId: "user_001",
+    products: {
+      products[5]: 2,
+      products[12]: 1,
+    },
+    createdAt: DateTime(2024, 2, 3, 14, 25),
+    updatedAt: DateTime(2024, 2, 6, 9, 50),
+  )
+];
+
+// Orders
+final List<Order> orders = List.generate(
+    5,
+    (index) => Order(
+          orderId: "order_00${index + 1}",
+          userId: "user_001",
+          latitude: -1.28 + (index * 0.002),
+    longitude: 36.82 + (index * 0.003),
+          createdAt: DateTime(2024, 1, 20 + index, 18, 30),
+          updatedAt: DateTime(2024, 2, 1, 10, 10),
+          products: [],
+          totalAmount: 0,
+          status: Status.values[index % 2], payment: index % 2 == 0 ?{Payment.paypal:"+254720041750"} :{Payment.mpesa: "+254720041750"},
+        ));
+
+

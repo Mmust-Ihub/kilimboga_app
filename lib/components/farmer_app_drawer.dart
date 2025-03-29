@@ -1,7 +1,9 @@
+import 'package:iconsax/iconsax.dart';
 import 'package:kilimboga/config/size_config.dart';
 import 'package:kilimboga/provider/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kilimboga/views/pages/market_page.dart';
 import 'package:provider/provider.dart';
 
 class FarmerAppDrawer extends StatelessWidget {
@@ -115,7 +117,7 @@ class FarmerAppDrawer extends StatelessWidget {
                   color:
                       Theme.of(context).colorScheme.primary.withOpacity(0.1)),
               ListTile(
-                leading: Icon(Icons.dark_mode_outlined,
+                leading: Icon(Iconsax.information,
                     color: Theme.of(context)
                         .colorScheme
                         .secondary
@@ -134,7 +136,13 @@ class FarmerAppDrawer extends StatelessWidget {
                   color:
                       Theme.of(context).colorScheme.primary.withOpacity(0.1)),
               ListTile(
-                leading: Icon(Icons.dark_mode_outlined,
+                onTap: () {
+                  Navigator.of(context).pop();
+
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MarketPage()));
+                },
+                leading: Icon(Iconsax.shop,
                     color: Theme.of(context)
                         .colorScheme
                         .secondary
@@ -153,6 +161,12 @@ class FarmerAppDrawer extends StatelessWidget {
                   color:
                       Theme.of(context).colorScheme.primary.withOpacity(0.1)),
               ListTile(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MarketPage()));
+
+                  Navigator.of(context).pop();
+                },
                 leading: Icon(Icons.dark_mode_outlined,
                     color: Theme.of(context)
                         .colorScheme

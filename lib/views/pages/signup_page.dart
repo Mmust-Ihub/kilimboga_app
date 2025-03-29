@@ -89,9 +89,18 @@ class _SignupPageState extends State<SignupPage> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Colors.blue.shade300,
-                          Colors.blue.shade400,
-                          Colors.blue.shade500,
+                          Theme.of(context)
+                              .colorScheme
+                              .secondary
+                              .withOpacity(0.7),
+                          Theme.of(context)
+                              .colorScheme
+                              .secondary
+                              .withOpacity(0.8),
+                          Theme.of(context)
+                              .colorScheme
+                              .secondary
+                              .withOpacity(0.9),
                         ],
                       ),
                     ),
@@ -145,12 +154,18 @@ class _SignupPageState extends State<SignupPage> {
                                     maintainState: false,
                                     builder: (context) => const LoginPage()));
                           },
-                    child: const Text(
+                    child: Text(
                       "Already have an account? Login",
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .secondary
+                            .withOpacity(0.9),
                         decoration: TextDecoration.underline,
-                        decorationColor: Colors.blue,
+                        decorationColor: Theme.of(context)
+                            .colorScheme
+                            .secondary
+                            .withOpacity(0.9),
                       ),
                     ),
                   ),
