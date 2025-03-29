@@ -3,6 +3,7 @@ import 'package:kilimboga/config/size_config.dart';
 import 'package:kilimboga/provider/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kilimboga/views/pages/blogs_page.dart';
 import 'package:kilimboga/views/pages/market_page.dart';
 import 'package:provider/provider.dart';
 
@@ -117,6 +118,12 @@ class FarmerAppDrawer extends StatelessWidget {
                   color:
                       Theme.of(context).colorScheme.primary.withOpacity(0.1)),
               ListTile(
+                onTap: () {
+                  Navigator.of(context).pop();
+
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const BlogsPage()));
+                },
                 leading: Icon(Iconsax.information,
                     color: Theme.of(context)
                         .colorScheme

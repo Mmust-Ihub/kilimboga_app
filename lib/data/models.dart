@@ -130,7 +130,22 @@ class SmartDevice {
 }
 
 class SensorData {
-  SensorData(this.time, this.nitrogen, this.phosphorus, this.potassium, this.moisture, this.humidity, this.temperature, this.ph);
+  SensorData(this.time, this.nitrogen, this.phosphorus, this.potassium,
+      this.moisture, this.humidity, this.temperature, this.ph);
   final DateTime time;
-  final double nitrogen, phosphorus, potassium, moisture, humidity, temperature, ph;
+  final double nitrogen,
+      phosphorus,
+      potassium,
+      moisture,
+      humidity,
+      temperature,
+      ph;
+}
+
+class Blog {
+  final String imagePath;
+  final String title;
+  final String body;
+
+  Blog({required this.imagePath, required this.title, required this.body});
 }
