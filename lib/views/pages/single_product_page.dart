@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:kilimboga/components/product_testimonial_card.dart';
+import 'package:kilimboga/components/testimonial_card.dart';
 import 'package:kilimboga/components/related_product_card.dart';
 import 'package:kilimboga/data/constants.dart';
 import 'package:kilimboga/provider/cart_provider.dart';
@@ -238,7 +238,7 @@ class _SingleProductPageState extends State<SingleProductPage> {
                                     shrinkWrap: true,
                                     itemBuilder:
                                         (BuildContext context, int index) {
-                                      return ProductTestimonialCard(
+                                      return TestimonialCard(
                                         imagePath: index % 2 == 0
                                             ? 'assets/images/doctor.webp'
                                             : 'assets/images/doctor_1.webp',
